@@ -21,10 +21,12 @@ jobs:
         - uses: dtolnay/rust-toolchain@stable
           with:
             targets: ${{ matrix.target }}
-        - uses: actions-rs/cargo@v1
+        - uses: PyO3/maturin-action@v1
           with:
-            command: build
-            args: --verbose --release --target ${{ matrix.target }}
+            command: sdist
+            args: --out dist
+            rust-toolchain: stable
         - uses: actions/upload-artifact@v3
           with:
-            path: target/${{ matrix.target }}/release
+            name: files
+            path: dist
