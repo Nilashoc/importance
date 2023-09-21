@@ -26,3 +26,5 @@ jobs:
             command: build
             args: --verbose --release --target ${{ matrix.target }}
         - uses: actions/upload-artifact@v3
+          with:
+            path: target/${{ matrix.target }}/release
