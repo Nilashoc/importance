@@ -23,8 +23,8 @@ jobs:
             targets: ${{ matrix.target }}
         - uses: PyO3/maturin-action@v1
           with:
-            command: sdist
-            args: --out dist
+            command: build
+            args: --release --out dist
             rust-toolchain: stable
         - uses: actions/upload-artifact@v3
           with:
