@@ -21,8 +21,8 @@ jobs:
         - uses: dtolnay/rust-toolchain@stable
           with:
             targets: ${{ matrix.target }}
-        - name: Build
-          uses: actions-rs/cargo@v1
+        - uses: actions-rs/cargo@v1
           with:
             command: build
-            args: --verbose --release --target ${{ matrix.target }}            
+            args: --verbose --release --target ${{ matrix.target }}
+        - uses: actions/upload-artifact@v3
